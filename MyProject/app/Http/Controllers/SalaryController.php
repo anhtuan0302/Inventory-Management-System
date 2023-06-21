@@ -58,7 +58,13 @@ class SalaryController extends Controller
         if ($employee) {
             $position = $employee->position;
             if ($position === 'Intern') {
-                $salary->wage = 100;
+                $salary->wage = 20;
+            }
+            elseif ($position === 'Junior') {
+                $salary->wage = 30;
+            }
+            elseif ($position === 'Senior') {
+                $salary->wage = 40;
             }
         }
 
@@ -69,19 +75,6 @@ class SalaryController extends Controller
         $salary->save();
 
         return redirect('/salaries');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        if(!Auth::check()) {
-            return redirect('/login');
-        }
-
-        $salary = Salary::find($id);
-        return view('salary.show', compact('salary'));
     }
 
     /**
@@ -107,9 +100,24 @@ class SalaryController extends Controller
         $salary->employee_id = $request->employee;
         $salary->month = $request->month;
         $salary->year = $request->year;
+
+        $employee = Employee::find($request->employee);
+        if ($employee) {
+            $position = $employee->position;
+            if ($position === 'Intern') {
+                $salary->wage = 20;
+            }
+            elseif ($position === 'Junior') {
+                $salary->wage = 30;
+            }
+            elseif ($position === 'Senior') {
+                $salary->wage = 40;
+            }
+        }
+
         $salary->workday = $request->workday;
         $salary->bonus = $request->bonus;
-        $salary->total = $request->total;
+        $salary->total = $salary->wage * $request->workday + $request->bonus;
         $salary->save();
 
         return redirect('/salaries');

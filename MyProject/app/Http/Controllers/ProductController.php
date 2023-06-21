@@ -58,8 +58,12 @@ class ProductController extends Controller
 
         $product->name = $request->name;
 
-        $photo = $request->file('photo')->store('public');
-        $product->photo = substr($photo, strlen('public/'));
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('public');
+            $product->photo = substr($photo, strlen('public/'));
+        } else {
+            $product->photo = 'admin.png';
+        }
 
         $product->category_id = $request->category;
         $product->supplier_id = $request->supplier;
@@ -112,8 +116,12 @@ class ProductController extends Controller
 
         $product -> name = $request->name;
 
-        $photo = $request->file('photo')->store('public');
-        $product -> photo = substr($photo, strlen('public/'));
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('public');
+            $product->photo = substr($photo, strlen('public/'));
+        } else {
+            $product->photo = 'admin.png';
+        }
 
         $product -> category_id = $request->category;
         $product -> supplier_id = $request->supplier;

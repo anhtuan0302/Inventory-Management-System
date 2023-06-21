@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignID('supplier_id')->constrained('suppliers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('warehouse_id')->constrained('warehouses')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->string('unit');
             $table->double('price');
             $table->string('status');

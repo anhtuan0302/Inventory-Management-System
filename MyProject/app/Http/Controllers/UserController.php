@@ -110,6 +110,12 @@ class UserController extends Controller
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo')->store('public');
             $user->photo = substr($photo,strlen('public/'));
+        } else {
+            if ($request->role=='Admin') {
+                $user->photo = 'admin.png';
+            } else {
+                $user->photo = 'user.png';
+            }
         }
 
         $user->role = $request->role ?: 'User';;
@@ -131,7 +137,7 @@ class UserController extends Controller
         if(!Auth::check()) {
             return redirect('/login');
         }
-        
+
         $user = User::find($id);
         $user->delete();
         return redirect('/users');
