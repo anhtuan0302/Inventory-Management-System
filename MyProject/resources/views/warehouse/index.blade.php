@@ -15,13 +15,13 @@
     <table class="table table-striped table-hover">
         <thead class="table-head" style="background:#7266ee; font-size:15px; color:#FFFFFF">
             <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Employee</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th style="width: 10%">Name</th>
+                <th style="width: 15%">Phone</th>
+                <th style="width: 20%">Email</th>
+                <th style="width: 20%">Address</th>
+                <th style="width: 15%">Employee</th>
+                <th style="width: 10%">Status</th>
+                <th style="width: 10%">Action</th>
             </tr>
             </thead>
             <tbody class="table-light">
@@ -40,7 +40,13 @@
                         <a href="{{url("/employees/".$employee->id)}}"  style="color:#7266ee">{{$employee->name}}<br></a>
                         @endforeach
                     </td>
-                    <td>{{$warehouse->status}}</td>
+                    <td>
+                        @if($warehouse->status === 'Active')
+                          <span class="badge bg-success">Active</span>
+                        @elseif($warehouse->status === 'Inactive')
+                          <span class="badge bg-danger">Inactive</span>
+                        @endif
+                    </td>
                     <td>
                       <a href="{{url("/warehouses/".$warehouse->id."/edit")}}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                       <form action="{{url("/warehouses/".$warehouse->id)}}" method="post" class="d-inline">

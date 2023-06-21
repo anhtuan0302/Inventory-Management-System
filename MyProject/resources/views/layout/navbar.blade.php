@@ -8,7 +8,7 @@
     <div class="d-flex align-items-center">
       @if(Auth::check())
         <img src="{{url("/upload/".Auth::user()->photo)}}" alt="Avatar" style="max-width: 40px; height: auto">
-        <a href="{{url("/users/".Auth::user()->id."/edit")}}"><span class="username ms-1 me-3" style="color: black">{{Auth::user()->name}}</span></a>
+        <a href="{{url("/users/".Auth::user()->id)}}"><span class="username ms-1 me-3" style="color: black">{{Auth::user()->name}}</span></a>
         <a href="/logout" class="btn btn-primary ms-3" style="background: #7266ee; font-size: 14px"><i class="bi bi-box-arrow-right"></i>&ensp;Logout</a>
       @endif
     </div>

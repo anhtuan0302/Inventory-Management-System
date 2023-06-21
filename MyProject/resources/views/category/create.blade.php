@@ -6,11 +6,11 @@
     <form action="/categories" method="post" class="create">
         @csrf
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">Name:</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
         </div>
         <div class="mb-3">
-            <label for="Description" class="form-label">Description</label>
+            <label for="Description" class="form-label">Description:</label>
             <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
         </div>
         <div class="text-center">

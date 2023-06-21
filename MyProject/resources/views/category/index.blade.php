@@ -15,9 +15,9 @@
     <table class="table table-striped table-hover">
         <thead class="table-head" style="background:#7266ee; font-size:15px; color:#FFFFFF">
             <tr>
-                <th style="width: 35%">Name</th>
-                <th style="width: 45%">Description</th>
-                <th style="width: 20%">Action</th>
+                <th style="width: 40%">Name</th>
+                <th style="width: 50%">Description</th>
+                <th style="width: 10%">Action</th>
             </tr>
             </thead>
             <tbody class="table-light">

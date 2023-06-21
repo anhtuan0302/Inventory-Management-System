@@ -6,23 +6,23 @@
         @if ($salaries->isEmpty())
             <div style="text-align:center; padding: 100px;">
                 <p style=>{{ $message }}</p>
-                <a href="salaries/create" class="btn btn-primary" style="background:#7266ee">Add Product</a>
+                <a href="salaries/create" class="btn btn-primary" style="background:#7266ee">Add Salary</a>
             </div>
         @else
             <div class="text-left" style="padding-bottom: 20px">
-                <a href="salaries/create"><button type="submit" class="btn btn-success">Add Product</button></a>
+                <a href="salaries/create"><button type="submit" class="btn btn-success">Add Salary</button></a>
             </div>
             <table class="table table-striped table-hover">
                 <thead class="table-head" style="background:#7266ee; font-size:15px; color:#FFFFFF; font-weight:lighter">
                     <tr>
-                        <th>Name</th>
-                        <th>Month</th>
-                        <th>Year</th>
-                        <th>Wage/Day</th>
-                        <th>Workday</th>
-                        <th>Bonus</th>
-                        <th>Total</th>
-                        <th>Action</th>
+                        <th style="width: 20px">Employee</th>
+                        <th style="width: 10px">Month</th>
+                        <th style="width: 15px">Year</th>
+                        <th style="width: 10px">Wage/Day</th>
+                        <th style="width: 10px">Workday</th>
+                        <th style="width: 10px">Bonus</th>
+                        <th style="width: 15px">Total</th>
+                        <th style="width: 10px">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-light">

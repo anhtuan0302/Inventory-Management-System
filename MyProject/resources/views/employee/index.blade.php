@@ -15,12 +15,12 @@
     <table class="table table-striped table-hover">
         <thead class="table-head" style="background:#7266ee; font-size:15px; color:#FFFFFF; font-weight:lighter">
             <tr>
-                <th style="width: 15%;">Name</th>
-                <th style="width: 15%">Phone</th>
-                <th style="width: 20%">Email</th>
+                <th style="width: 18%">Name</th>
+                <th style="width: 18%">Phone</th>
+                <th style="width: 24%">Email</th>
                 <th style="width: 15%">Position</th>
                 <th style="width: 15%">Status</th>
-                <th style="width: 20%">Action</th>
+                <th style="width: 10%">Action</th>
             </tr>
             </thead>
             <tbody class="table-light">
@@ -34,7 +34,13 @@
                     <td>{{$employee->phone}}</td>
                     <td>{{$employee->email}}</td>
                     <td>{{$employee->position}}</td>
-                    <td>{{$employee->status}}</td>
+                    <td>
+                        @if($employee->status === 'Active')
+                          <span class="badge bg-success">Active</span>
+                        @elseif($employee->status === 'Inactive')
+                          <span class="badge bg-danger">Inactive</span>
+                        @endif
+                    </td>
                     <td>
                       <a href="{{url("/employees/".$employee->id."/edit")}}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                       <form action="{{url("/employees/".$employee->id)}}" method="post" class="d-inline">
