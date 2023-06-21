@@ -1,9 +1,9 @@
 @extends('layout.layout')
 @section('title', 'Dashboard')
 @section('content')
+
     <div class="row">
       <div class="col-4">
-        <!-- Todo List -->
         <div class="card">
           <div class="card-body">
             <h5 class="card-title pb-3">Todo List</h5>
@@ -19,12 +19,10 @@
         </div>
       </div>
       <div class="col-8">
-        <!-- Event Calendar -->
         <div class="card">
           <div class="card-body">
             <h5 class="card-title pb-3">Event Calendar</h5>
             <div class="calendar">
-              <!-- Placeholder for event calendar -->
               <div class="event py-5">Event 1</div>
               <div class="event py-5">Event 2</div>
               <div class="event py-5">Event 3</div>
@@ -38,7 +36,6 @@
         </div>
       </div>
     </div>
-
 @endsection
 
 <style>

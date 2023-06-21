@@ -27,13 +27,14 @@ Route::resource('/suppliers', SupplierController::class);
 Route::resource('/employees', EmployeeController::class);
 Route::resource('/warehouses', WarehouseController::class);
 Route::resource('/users', UserController::class);
+
 Route::get('/login', AuthenticationController::class . '@loginIndex')->name('login');
 Route::get('/register', AuthenticationController::class . '@registerIndex');
 Route::post('/login', AuthenticationController::class . '@login');
 Route::post('/register', AuthenticationController::class . '@register');
 Route::get('/logout', AuthenticationController::class . '@logout');
-Route::get('/', function () {return view('page.dashboard');});
 Route::get('error', function () {return view('page.error');});
+Route::get('/', function () {return view('page.dashboard');})->middleware('auth');
 
 Route::resource('/salaries', SalaryController::class)->middleware('UserCheck:User');
 Route::get('/users', [UserController::class, 'index'])->middleware('UserCheck:User');
