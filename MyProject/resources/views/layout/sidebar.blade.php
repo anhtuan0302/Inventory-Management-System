@@ -10,8 +10,9 @@
       <li><a href="{{url('/products')}}" class="{{ Request::is('products/*','products') ? 'active' : '' }}"><i class="bi bi-folder"></i>Product</a></li>
       <li><a href="{{url('/categories')}}" class="{{ Request::is('categories/*','categories') ? 'active' : '' }}"><i class="bi bi-tags"></i>Category</a></li>
       <li><a href="{{url('/suppliers')}}" class="{{ Request::is('suppliers/*','suppliers') ? 'active' : '' }}"><i class="bi bi-boxes icon"></i>Supplier</a></li>
-      <li><a href="{{url('/warehouses')}}" class="{{ Request::is('warehouses/*','warehouses') ? 'active' : '' }}"><i class="bi bi-house-heart icon"></i>Warehouse</a></li>
+      
       @if(auth()->check() && auth()->user()->role !== 'User')
+      <li><a href="{{url('/warehouses')}}" class="{{ Request::is('warehouses/*','warehouses') ? 'active' : '' }}"><i class="bi bi-house-heart icon"></i>Warehouse</a></li>
       <li><a href="{{url('/employees')}}" class="{{ Request::is('employees/*','employees') ? 'active' : '' }}"><i class="bi bi-people-fill icon"></i>Employee</a></li>
       <li><a href="{{url('/salaries')}}" class="{{ Request::is('salaries/*','salaries') ? 'active' : '' }}"><i class="bi bi-cash icon"></i>Salary</a></li>
       <br><br><br>

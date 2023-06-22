@@ -25,7 +25,7 @@ Route::resource('/products', ProductController::class);
 Route::resource('/categories', CategoryController::class);
 Route::resource('/suppliers', SupplierController::class);
 Route::resource('/employees', EmployeeController::class);
-Route::resource('/warehouses', WarehouseController::class);
+Route::resource('/warehouses', WarehouseController::class)->middleware('UserCheck:User');
 Route::resource('/users', UserController::class);
 
 Route::get('/login', AuthenticationController::class . '@loginIndex')->name('login');
