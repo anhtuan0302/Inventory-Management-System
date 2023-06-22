@@ -120,7 +120,9 @@ class ProductController extends Controller
             $photo = $request->file('photo')->store('public');
             $product->photo = substr($photo, strlen('public/'));
         } else {
-            $product->photo = 'admin.png';
+            if ($product->photo == null){
+                $product->photo = 'admin.png';
+            }
         }
 
         $product -> category_id = $request->category;
